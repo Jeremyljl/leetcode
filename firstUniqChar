@@ -1,0 +1,22 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        //build hashmap
+        HashMap<Character, Integer> count = new HashMap<Character, Integer>();
+        int l = s.length();
+        
+        for(int i = 0; i < l; i++){
+            char c = s.charAt(i);
+//count.getOrDefault .  c or 0   if no c,creat c = 0,  then + 1
+            count.put(c, count.getOrDefault(c, 0) + 1);
+        }
+        
+        //find the char
+        for(int i = 0; i < l; i++){
+            if(count.get(s.charAt(i)) == 1){
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}
