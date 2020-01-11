@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        if(s.length() == 0)
+            return true;
+        
+        String str1 = s.toLowerCase();
+//去除空格
+        String str2 = str1.replace(" ", "");
+//去除标点
+        String str = str2.replaceAll("[\\pP\\p{Punct}]","");
+        System.out.print(str);
+        int p1 = 0;
+//双指针后面的要-1
+       int p2 = str.length() - 1;
+        
+        
+       while(p1 < p2){
+            char c1 = str.charAt(p1);
+            char c2 = str.charAt(p2);
+            if(c1 != c2){
+                return false;
+            }
+           p1++;
+           p2--;
+        }
+        
+        return true;
+    }
+}
